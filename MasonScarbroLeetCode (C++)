@@ -1,0 +1,79 @@
+
+LEGEND:                                                                                                                     
+/* */ --> means extended non code comment longer than two lines.                                                             
+                                                                                    
+// // --> means comment or a non code format
+
+RESULT --> this is the given result from Leetcode
+
+// Code Used // --> Anything after this point is code that was put to use until the next // appears.
+
+//THE line like at the bottom of the legend is to seperate questions//
+
+// I'm new to Github and I do not know how to format these the legend above should help with any confusion related to 
+what is shown considering it may seem clunky or smudged together // 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//1026. Maximum Difference Between Node and Ancestor//
+//Question://
+/*Given the root of a binary tree, find the maximum value v for which there exist different nodes a and b where v = |a.val - b.val| and a is an ancestor of b.
+
+A node a is an ancestor of b if either: any child of a is equal to b or any child of a is an ancestor of b.?*/
+//Code Used://
+class Solution {
+public:
+    int maxAncestorDiff(TreeNode* root) {
+        int result = 0;
+        dfs(root, result);
+        return result;
+    }
+
+private:
+    void dfs(TreeNode* node, int& result, int min_val = INT_MAX, int max_val = INT_MIN) {
+        if (!node) return;
+
+        min_val = std::min(min_val, node->val);
+        max_val = std::max(max_val, node->val);
+
+        result = std::max(result, max_val - min_val);
+
+        dfs(node->left, result, min_val, max_val);
+        dfs(node->right, result, min_val, max_val);
+    }
+};
+// RESULT: ACCEPTED //
+//-------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// 412. Fizz Buzz //
+/* PROBLEM: Given an integer n, return a string array answer (1-indexed) where:
+
+answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+answer[i] == "Fizz" if i is divisible by 3.
+answer[i] == "Buzz" if i is divisible by 5.
+answer[i] == i (as a string) if none of the above conditions are true. */
+
+// CODE USED: //
+class Solution {
+public:
+    std::vector<std::string> fizzBuzz(int n) {
+        std::vector<std::string> result;
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                result.push_back("FizzBuzz");
+            } else if (i % 3 == 0) {
+                result.push_back("Fizz");
+            } else if (i % 5 == 0) {
+                result.push_back("Buzz");
+            } else {
+                result.push_back(std::to_string(i));
+            }
+        }
+        return result;
+    }
+};
+
+// RESULT: ACCEPTED //
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------//
+
