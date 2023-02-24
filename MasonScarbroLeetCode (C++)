@@ -85,7 +85,7 @@ Return k after placing the final result in the first k slots of nums.
 
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory. */
 
-// The question itself is unclear and wordy without any sustanance i would just ignore this question //
+
 // CODE USED: //
 
 class Solution {
@@ -105,3 +105,34 @@ public:
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------//
 
+/* PROBLEM 1.)Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order. */
+
+// CODE USED: //
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int prevnum = 0;
+        int[] indecies = new int[2];
+        for (int i = 0; i < nums.length; i++){ // loops through the initial array
+            for (int j = i + 1; j < nums.length; j++){ // loops through the array to search for a second indecie (j + 1 skips the first)
+                if (nums[i] + nums[j] == target){ // checks if the arrays indecie numbers sum match the target
+                    indecies[0] = i;
+                    indecies[1] = j;
+                    return indecies;
+                }
+            }
+        }
+        return null; // if loop does not return indecie return nothing
+        
+    }
+}
+
+// RESULT: ACCEPTED // 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------//
+ 
