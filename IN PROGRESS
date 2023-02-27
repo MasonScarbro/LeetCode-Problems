@@ -1,0 +1,34 @@
+class Solution {
+    public int[] runningSum(int[] nums) {
+        // for loop that iterates of each indecie of the nums array // 
+        for (int i = 0; i <= nums.lenght(); i++){
+
+            sum += nums[i] // has "sum" = sum + the current loop iteration indecie //
+
+            if (nums[i - 1] == nums[-1]){
+                sum = nums[0] // if statement set to allow that if its the first indecie it will set the sum to the irst indecie // 
+            } else {
+                sum = nums[i-1]; // resets sum to the current indece minus 1 perchance the last indecie of the array //
+            }
+        }
+
+    }
+}
+/* NOTES:
+/* You need to convert the sum to an array indecie or counter like structure so 
+the each iteration of the loop subs the sum int each array of that indecie possible  
+second for loop or something along the lines of After
+
+<CODE>:  sum += nums[i] 
+        indecies[i] = sum 
+ALSO,
+<CODE>: indecies[i] = sum += nums[i]
+ALSO,
+ in event if (nums[i - 1] == nums[-1]) does not work try <CODE>:
+ if (nums[i] < 0){
+     sum = nums[0]
+ }
+
+ SEEK TESTING
+ // YOU MIGHT HAVE TO REVIEW CODE FOR EACH SOLUTION MAKE SURE THE LOOP MAKE SENSE // 
+ */ 
