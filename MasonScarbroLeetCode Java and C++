@@ -134,7 +134,9 @@ class Solution {
 // RESULT: ACCEPTED // 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------//
- /* PROBLEM 1480: 
+ // PROBLEM 1480: //
+ 
+ // CODE USED: //
  class Solution {
     public int[] runningSum(int[] nums) {
 
