@@ -157,4 +157,57 @@ class Solution {
 }
 // RESULT: ACCEPTED //
 //-------------------------------------------------------------------------------------------------------------------------------------------------//
+/* PROBLEM 912: Given an array of integers nums, sort the array in ascending order and return it.
+
+You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible. */
+
+// CODE USED: //
+import java.util.*;
+
+class Solution {
+    public int[] sortArray(int[] nums) {
+     
+
+     for (int i = 0; i < nums.length - 1; i++){
+         if (nums[i] > nums[i + 1]){
+             int temp = nums[i + 1];
+             nums[i+1] = nums[i];
+             nums[i] = temp;
+             i = -1;
+             
+         }
+        
+     }
+     return nums;
+
+    }
+} 
+// RESULT: EXCEEDED TIME COMPLEXITY // 
+
+/* I saw this coming but i did do some research as to what the correct answer might be and it doesnt seem intuitive at all
+or at least not at my level because I dont even know what Time complexity means */
+
+// INTUITON: // 
+/* The Idea is your swapping the number ahead of the array if it is bigger and then resetting i to zero to continually to get the number back to where it should be 
+   The reason its i = -1 is because its a post incrementer so its actually just setting i = 0 since its running the entire loop and then incrementing 1 
+   the reason nums.length - 1 is because if you dont do this it will run into an out of bounds exception in that if statement. lets run through a simple example to see this in action
+   nums[] = { 1, 6, 9, 3}
+   without the i = -1;
+   output would be [ 1, 6, 3, 9]
+   because it didnt reset so it only did the swap once
+   with i = -1 
+   output would be what it should: [1, 3, 6, 9]
+   with that i going back to 0 each time its effectivley running the loop over and over again even though its just one for loop
+   i = 0 nums[i] = 1 !> nums[i+1] = 6
+   i = 1 nums[i] = 6 !> nums[i+i] = 9
+   i = 2 nums[i] = 9  > nums[i+1] = 3  without i = -1 it would just stop [1, 6, 3, 9] but with...
+   i = -1 loop finished therefore i = 0 
+   i = 0 nums[i] = 1 !> nums[i+1] = 6
+   i = 1 nums[i] = 6  > nums[i+1] = 3
+   so now swap 6 and 3 and output is [1, 3, 6, 9]
+   here you can also see where that (i < nums.length - 1) comes in as it would be a problem if it got to index 3 and tried to check if [REDACTED] was greater than 3
+   */
+   
+   //-------------------------------------------------------------------------------------------------------------------------------------------------//
+   
 
